@@ -249,6 +249,12 @@ T = simplify(T);                                             %Vereinfachung
 %---- potentielle Energie
 V=-(m1*I_r_S1.'+m2*I_r_S2.')*[0 ; -g ; 0];
 \end{lstlisting}
+\begin{figure}[h]
+\centering  %Zentrierung
+{\includegraphics[width=10cm]{Ortsvektoren}}
+\caption{Ortsvektoren zu Gelenk- und Schwerpunkten}
+\end{figure}
+\noindent
 Schließlich werden nach Gleichgung (2.1) die Bewgungsgleichungen berechnet und um die Ruhelage linearisiert. Außerdem werden noch die, für eine Zustandsraumdarstellung erforderlichen Matrizen berechnet und ausgegeben.
 \begin{lstlisting}
 %---- Ableitungen fuer LAGRANGEsche Gleichung 2. Art
@@ -289,12 +295,9 @@ G = 1/2*(P-P.')
  \end{lstlisting}
 
 \section{Zustandsraumdarstellung und Reglerentwurf}
-Um die Auslegung des LQ-Reglers effizient gestalten zu können transformieren wir unser Problem in den Zustandsraum und berechnen die Regelunskonstante. 
+Um die Auslegung des LQ-Reglers effizient gestalten zu können, transformieren wir unser Problem in den Zustandsraum. Durch ersetzen der Parameter durch die Zahlenwerte, kann als nächstes die Regelungskonstante berechnet werden. 
+Da wir nun die Parameter wieder rückführen, werden diese und die Matrizen der Zustandsraumdartsellung umbenannt.
 
-EKLÄRUNG Zustandsraum LQR parameterrueckfuehrung
-
-XXXXXX \\
-XXXXX \\
 
 \begin{lstlisting}
 %============================================
@@ -380,8 +383,12 @@ Eigenwerte = eig(Ac)
 disp('Das System ist stabil, da der Realteil aller Eigenwerte negativ ist!')
 
 \end{lstlisting}
-Wie sich im MATLAB Code schon erkennen lässt sind die Realteile aller Eigenwerte negativ. Somit ist das betrachtete System stabil!
-
+\begin{figure}[h]
+\centering  %Zentrierung
+{\includegraphics[width=5cm]{Eigenwerte}}
+\caption{Eigenwerte}
+\end{figure}
+Wie sich in der Ausgabe erkennen lässt sind die Realteile aller Eigenwerte negativ. Somit ist das betrachtete System stabil!
 \begin{figure}[h]
 \centering  %Zentrierung
 {\includegraphics[width=15cm]{AusgabeMATLAB}}
